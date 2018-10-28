@@ -1,0 +1,52 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container mt-2">
+    <h2>Create</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Title">Title</label>
+            <input asp-for="Title" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description">Description</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Body">Body</label>
+            <input asp-for="Body" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label>Image</label>
+            <input type="file" name="file" id="file" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CategoryId">Category</label>
+            <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control">
+                <option disabled selected value="">Select Category</option>
+            </select>
+        </div>
+
+        <div class="form-check">
+            <label asp-for="isApproved" class="form-check-label">
+                <input asp-for="isApproved" type="checkbox" class="form-check-input" />
+                İs Approved
+            </label>
+        </div>
+        <div class="form-check">
+            <label asp-for="isHome" class="form-check-label">
+                <input asp-for="isHome" type="checkbox" class="form-check-input" />
+                İs Home
+            </label>
+        </div><br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
